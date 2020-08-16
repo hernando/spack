@@ -13,6 +13,7 @@ class Pangomm(AutotoolsPackage):
     url      = "https://ftp.gnome.org/pub/GNOME/sources/pangomm/2.14/pangomm-2.14.1.tar.gz"
 
     version('2.43.1', sha256='00483967b4ed0869da09dc0617de45625b9ab846c7b07aa25dfc940a4fc540a4')
+    version('2.42.1', sha256='14bf04939930870d5cfa96860ed953ad2ce07c3fd8713add4a1bfe585589f40f')
     version('2.42.0', sha256='ca6da067ff93a6445780c0b4b226eb84f484ab104b8391fb744a45cbc7edbf56')
     version('2.41.5', sha256='5131830d5b37b181ca4fa8f641ad86faa985c0bb7dcc833c98672d294367b304')
     version('2.40.2', sha256='0a97aa72513db9088ca3034af923484108746dba146e98ed76842cf858322d05')

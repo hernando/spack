@@ -12,11 +12,13 @@ class Glibmm(AutotoolsPackage):
     homepage = "https://developer.gnome.org/glib/"
     url      = "https://ftp.gnome.org/pub/GNOME/sources/glibmm/2.19/glibmm-2.19.3.tar.gz"
 
+    version('2.60.0', sha256='a3a1b1c9805479a16c0018acd84b3bfff23a122aee9e3c5013bb81231aeef2bc')
+    version('2.32.0', sha256='e1806f884c6e9f904ee2af0d39dd8d4de3f91a039f897f54333b0890de06f94b')
     version('2.19.3', sha256='23958368535c19188b1241c4615dcf1f35e80e0922a04236bb9247dcd8fe0a2b')
     version('2.16.0', sha256='99795b9c6e58e490df740a113408092bf47a928427cbf178d77c35adcb6a57a3')
     version('2.4.8', sha256='78b97bfa1d001cc7b398f76bf09005ba55b45ae20780b297947a1a71c4f07e1f')
 
-    depends_on('libsigcpp')
+    depends_on('libsigcpp@2.0:2.9.3', when='@:2.60.0')
     depends_on('glib')
 
     patch('guint16_cast.patch', when='@2.19.3')
