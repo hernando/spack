@@ -37,6 +37,8 @@ modules:
       - INCLUDE
     lib/pkgconfig:
       - PKG_CONFIG_PATH
+    lib/lv2:
+      - LV2_PATH
     lib64/pkgconfig:
       - PKG_CONFIG_PATH
     share/pkgconfig:
