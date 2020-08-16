@@ -1,0 +1,12 @@
+diff --git a/source/Makefile b/source/Makefile
+index 776c067..8ecd2b0 100644
+--- a/source/Makefile
++++ b/source/Makefile
+@@ -56,7 +56,6 @@ install:	$(ZITA-CONVOLVER_MIN)
+ 	install -d $(DESTDIR)$(LIBDIR)
+ 	install -m 644 $(ZITA-CONVOLVER_H) $(DESTDIR)$(INCDIR)
+ 	install -m 755 $(ZITA-CONVOLVER_MIN) $(DESTDIR)$(LIBDIR)
+-	ldconfig
+ 	ln -sf $(ZITA-CONVOLVER_MIN) $(DESTDIR)$(LIBDIR)/$(ZITA-CONVOLVER_SO)
+ 
+ uninstall:
