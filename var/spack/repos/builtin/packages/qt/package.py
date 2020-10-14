@@ -24,6 +24,8 @@ class Qt(Package):
 
     phases = ['configure', 'build', 'install']
 
+    version('5.15.1', sha256='44da876057e21e1be42de31facd99be7d5f9f07893e1ea762359bcee0ef64ee9')
+    version('5.15.0', sha256='22b63d7a7a45183865cc4141124f12b673e7a17b1fe2b91e433f6547c5d548c3')
     version('5.14.2', sha256='c6fcd53c744df89e7d3223c02838a33309bd1c291fcb6f9341505fe99f7f19fa')
     version('5.14.1', sha256='6f17f488f512b39c2feb57d83a5e0a13dcef32999bea2e2a8f832f54a29badb8')
     version('5.14.0', sha256='be9a77cd4e1f9d70b58621d0753be19ea498e6b0da0398753e5038426f76a8ba')
@@ -563,7 +565,8 @@ class Qt(Package):
                 config_args.append('-no-xinput2')
         else:
             # Linux-only QT5 dependencies
-            config_args.append('-system-xcb')
+            if version < Version('5.15'):
+                config_args.append('-system-xcb')
 
         if '~webkit' in spec:
             config_args.extend([
