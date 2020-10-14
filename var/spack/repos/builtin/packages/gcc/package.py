@@ -446,13 +446,15 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage):
             # Distributor options
             '--with-pkgversion=Spack GCC',
             '--with-bugurl=https://github.com/spack/spack/issues',
-            # Xcode 10 dropped 32-bit support
-            '--disable-multilib',
             '--enable-languages={0}'.format(
                 ','.join(spec.variants['languages'].value)),
             # Drop gettext dependency
             '--disable-nls'
         ]
+
+        if sys.platform == 'darwin':
+            # Xcode 10 dropped 32-bit support
+            optiona.append('--disable-multilib')
 
         # Use installed libz
         if self.version >= Version('6'):
