@@ -10,14 +10,12 @@ class Yabridge(MesonPackage):
     homepage = "https://github.com/robbert-vdh/yabridge"
     git = "https://github.com/robbert-vdh/yabridge.git"
 
-    version('1.6.0', tag='1.6.0')
-    version('1.5.0', tag='1.5.0')
+    version('3.0.2', tag='3.0.2')
 
-    depends_on('wine', type=('build', 'run'))
     depends_on('boost @1.66.0:')
     depends_on('libxcb')
 
-    depends_on('meson @0.55.0', type='build')
+    depends_on('meson @0.55.0:', type='build')
     depends_on('ninja', type='build')
 
     def setup_build_environment(self, env):
@@ -41,6 +39,7 @@ class Yabridge(MesonPackage):
 
             os.mkdir(prefix + '/bin')
             for f in ['yabridge-host.exe', 'yabridge-group.exe',
-                      'yabridge-host.exe.so', 'yabridge-group.exe.so', 'libyabridge.so']:
+                      'yabridge-host.exe.so', 'yabridge-group.exe.so', 'libyabridge-vst2.so',
+                      'libyabridge-vst3.so']:
                 shutil.copyfile(f, prefix + '/bin/' + f)
 
