@@ -1,0 +1,49 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 872ff0e..67eb040 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -413,6 +413,7 @@ elseif( UNIX AND NOT APPLE )
+   
+   find_package(PkgConfig REQUIRED)
+   pkg_check_modules(CAIRO REQUIRED cairo)
++  pkg_check_modules(FREETYPE REQUIRED freetype2)
+   pkg_check_modules(XCB REQUIRED xcb)
+   pkg_check_modules(XCBCURSOR REQUIRED xcb-cursor)
+   pkg_check_modules(XCBUTIL REQUIRED xcb-util)
+@@ -448,6 +449,7 @@ elseif( UNIX AND NOT APPLE )
+     -ffunction-sections
+     
+     ${CAIRO_CFLAGS_OTHER}
++    ${FREETYPE_CFLAGS_OTHER}
+     )
+   
+   set(OS_COMPILE_DEFINITIONS
+@@ -460,6 +462,7 @@ elseif( UNIX AND NOT APPLE )
+     src/linux
+ 
+     ${CAIRO_INCLUDE_DIRS}
++    ${FREETYPE_INCLUDE_DIRS}
+     ${XCB_INCLUDE_DIRS}
+     ${XCBCURSOR_INCLUDE_DIRS}
+     ${XCBUTIL_INCLUDE_DIRS}
+@@ -482,6 +485,7 @@ elseif( UNIX AND NOT APPLE )
+   set(OS_LINK_LIBRARIES
+     ${OS_LINK_LIBRARIES_NOGUI}
+     ${CAIRO_LDFLAGS}
++    ${FREETYPE_LDFLAGS}
+     ${XCB_LDFLAGS}
+     ${XCBCURSOR_LDFLAGS}
+     ${XCBUTIL_LDFLAGS}
+diff --git a/vstgui.surge/vstgui/lib/platform/linux/cairofont.cpp b/vstgui.surge/vstgui/lib/platform/linux/cairofont.cpp
+index c465652..7e42a3e 100644
+--- a/vstgui.surge/vstgui/lib/platform/linux/cairofont.cpp
++++ b/vstgui.surge/vstgui/lib/platform/linux/cairofont.cpp
+@@ -9,7 +9,7 @@
+ #include "x11frame.h"
+ #include <cairo/cairo-ft.h>
+ #include <fontconfig/fontconfig.h>
+-#include <freetype2/ft2build.h>
++#include <ft2build.h>
+ #include <unordered_map>
+ #include <cassert>
+ 

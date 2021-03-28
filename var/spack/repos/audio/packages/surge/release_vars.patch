@@ -1,0 +1,32 @@
+diff --git a/cmake/versiontools.cmake b/cmake/versiontools.cmake
+index c3f7ea0..5568080 100644
+--- a/cmake/versiontools.cmake
++++ b/cmake/versiontools.cmake
+@@ -1,25 +1,8 @@
+ 
+ find_package(Git)
+ 
+-if( Git_FOUND )
+-  execute_process(
+-    COMMAND ${GIT_EXECUTABLE} rev-parse --abbrev-ref HEAD
+-    WORKING_DIRECTORY ${SURGESRC}
+-    OUTPUT_VARIABLE GIT_BRANCH
+-    OUTPUT_STRIP_TRAILING_WHITESPACE
+-    )
+-
+-  execute_process(
+-    COMMAND ${GIT_EXECUTABLE} log -1 --format=%h
+-    WORKING_DIRECTORY ${SURGESRC}
+-    OUTPUT_VARIABLE GIT_COMMIT_HASH
+-    OUTPUT_STRIP_TRAILING_WHITESPACE
+-    )
+-else()
+-  message( WARNING "Git isn't present in your path. Setting hashes to defaults" )
+-  set( GIT_BRANCH "git-not-present" )
+-  set( GIT_COMMIT_HASH "git-not-present" )
+-endif()
++set(GIT_BRANCH $ENV{SPACK_GIT_BRANCH})
++set(GIT_COMMIT_HASH $ENV{SPACK_HASH})
+ 
+ if( WIN32 )
+   set( SURGE_BUILD_ARCH "Intel" )
