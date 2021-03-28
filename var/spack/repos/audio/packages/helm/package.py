@@ -14,6 +14,7 @@ class Helm(AutotoolsPackage):
     depends_on('m4',       type='build')
 
     depends_on('alsa')
+    depends_on('curl')
     depends_on('freetype')
     depends_on('jack')
     depends_on('libxcursor')

@@ -11,7 +11,6 @@ class A2jmidid(MesonPackage):
     depends_on('jack')
 
     depends_on('meson', type='build')
-    depends_on('ninja', type='build')
 
     def meson_args(self):
         return ['-Ddisable-dbus=true']
