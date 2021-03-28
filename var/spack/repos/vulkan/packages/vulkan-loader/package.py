@@ -6,10 +6,10 @@ class VulkanLoader(CMakePackage):
     homepage = "https://github.com/KhronosGroup/Vulkan-Loader.git"
     git = "https://github.com/KhronosGroup/Vulkan-Loader.git"
 
-    version('1.2.154', tag='v1.2.154')
+    version('1.2.172', tag='v1.2.172')
     version('1.1.130', tag='v1.1.130')
 
-    depends_on('vulkan-headers@1.2.154', when='@1.2.154')
+    depends_on('vulkan-headers@1.2.172', when='@1.2.172')
     depends_on('vulkan-headers@1.1.130', when='@1.1.130')
 
     depends_on('libxcb')

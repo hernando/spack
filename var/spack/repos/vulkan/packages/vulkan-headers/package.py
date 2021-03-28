@@ -6,7 +6,7 @@ class VulkanHeaders(CMakePackage):
     homepage = "https://github.com/KhronosGroup/Vulkan-Headers.git"
     git =  "https://github.com/KhronosGroup/Vulkan-Headers.git"
 
-    version('1.2.154', tag='v1.2.154')
+    version('1.2.172', tag='v1.2.172')
     version('1.1.130', tag='v1.1.130')
 
     def setup_dependent_build_environment(self, env, dependent_spec):
