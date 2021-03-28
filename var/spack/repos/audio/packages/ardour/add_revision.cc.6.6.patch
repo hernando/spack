@@ -1,0 +1,8 @@
+diff --git a/libs/ardour/revision.cc b/libs/ardour/revision.cc
+new file mode 100644
+index 000000000..7036c7235
+--- /dev/null
++++ b/libs/ardour/revision.cc
+@@ -0,0 +1,2 @@
++#include "ardour/revision.h"
++namespace ARDOUR { const char* revision = "6.6"; const char* date = "2021-02-22"; }

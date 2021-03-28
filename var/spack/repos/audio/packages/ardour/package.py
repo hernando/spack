@@ -5,6 +5,7 @@ class Ardour(WafPackage):
     homepage = "https://ardour.org/"
     git      = "https://github.com/Ardour/ardour.git"
 
+    version('6.6', tag='6.6')
     version('6.2', tag='6.2')
     version('6.0', tag='6.0')
 
@@ -44,6 +45,7 @@ class Ardour(WafPackage):
 
     patch('add_revision.cc.6.0.patch', when='@6.0')
     patch('add_revision.cc.6.2.patch', when='@6.2')
+    patch('add_revision.cc.6.6.patch', when='@6.6')
     patch('fix_fftw3f_linking.patch')
 
     def configure_args(self):
